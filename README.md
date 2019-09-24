@@ -1,2 +1,2 @@
 # Anaxcel_PyQt5
-![Screenshot](Screenshot/Screenshot(117).png)
+![Screenshot](s1.png)
