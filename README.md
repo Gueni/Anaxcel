@@ -43,7 +43,7 @@ python anaxcel.py
 ```
 
 First start by loading a couple of excel files to the application. You can choose to load a display a single file or select multiple files. 
-![Screenshot](s4.png)
+![Screenshot](s7.png)
 
 The process will combine the selected files and load them for you .
 
