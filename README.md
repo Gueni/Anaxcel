@@ -12,8 +12,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Either use the executable on Windows or simply run the main script <anaxcel.py>.
-To be able to run this script make sure you have the necessary packages installed on your machine:
+
+To be able to run this Program make sure you have the necessary packages installed on your machine:
 
 ####PyQt5:
 
@@ -23,69 +23,50 @@ pip install PyQt5
 ```
 If that did not work, you might try this link from SourceForge [PyQt5 .exe installers for Windows](https://sourceforge.net/projects/pyqt/files/PyQt5/).
 
+install OpenPYXL in Python:
 
-## Installing
+```
+pip install openpyxl
+```
+If you need to include images into an openpyxl file, you will also need the “pillow” library that can be installed with:
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-Give the example
-
-And repeat
-
-until finished
-
-End with an example of getting some data out of the system or using it for a little demo
+```
+pip install pillow
+```
 
 ## Running the tests
-![Screenshot](s1.png)
-![Screenshot](s2.png)
-![Screenshot](s3.png)
+
+Simply run the main script <anaxcel.py>.
+
+```
+python anaxcel.py
+```
+
+First start by loading a couple of excel files to the application. You can choose to load a display a single file or select multiple files. 
 ![Screenshot](s4.png)
 
-Explain how to run the automated tests for this system
-Break down into end to end tests
+The process will combine the selected files and load them for you .
 
-Explain what these tests test and why
+![Screenshot](s3.png)
 
-Give an example
+Select what columns you wish to be the axis of the chart then hit analyse.The program will set focus on the newly generated Pareto Chart.
 
-And coding style tests
+![Screenshot](s1.png)
 
-Explain what these tests test and why
+As a bonus we wanted to include multiple charts such the Donut chart. Unfortunatly , this is still a work in progress.
 
-Give an example
+![Screenshot](s2.png)
 
-## Deployment
 
-Add additional notes about how to deploy this on a live system
-Built With
-
-    Dropwizard - The web framework used
-    Maven - Dependency Management
-    ROME - Used to generate RSS Feeds
-
-## Contributing
-
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-Versioning
-
-We use SemVer for versioning. For the versions available, see the tags on this repository.
 ## Authors
 
-    Billie Thompson - Initial work - PurpleBooth
+    Mohamed GUENI 
+    ![Screenshot](s5.png)
 
-See also the list of contributors who participated in this project.
 ## License
 
-This project is licensed under the MIT License - see the LICENSE.md file for details
-## Acknowledgments
-
-    Hat tip to anyone whose code was used
-    Inspiration
- 
+This document and the attached source code are released under GNU General Public License Version 2. See the accompanying file LICENSE for a copy.
 
 
-![Screenshot](s5.png)
+
 
