@@ -34,7 +34,7 @@ If you need to include images into an openpyxl file, you will also need the “p
 pip install pillow
 ```
 
-## Running the tests
+## Running 
 
 Simply run the main script <anaxcel.py>.
 
