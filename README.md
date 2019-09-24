@@ -60,8 +60,8 @@ As a bonus we wanted to include multiple charts such the Donut chart. Unfortunat
 
 ## Authors
 
-    Mohamed GUENI 
-    ![Screenshot](s5.png)
+   ###Mohamed GUENI 
+   ![Screenshot](s5.png)
 
 ## License
 
