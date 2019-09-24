@@ -221,13 +221,11 @@ class anaxcelhandler(QtWidgets.QMainWindow, anaxcelgui.Ui_MainWindow):
             for colindex in range(self.tableWidget.columnCount()):
                 self.comboBoxabsc.addItem(str(colindex))
                 self.comboBoxordo.addItem(str(colindex))
-                self.comboBoxset.addItem(str(colindex))
         elif self.comboBoxfiletype.currentIndex() == 1:  # xlsx
             self.xlsxprocess()
             for colindex in range(self.tableWidget.columnCount()):
                 self.comboBoxabsc.addItem(str(colindex))
                 self.comboBoxordo.addItem(str(colindex))
-                self.comboBoxset.addItem(str(colindex))
 
     def analyseProcess(self):
         absc = []
