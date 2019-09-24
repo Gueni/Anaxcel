@@ -12,9 +12,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Either use the executable on Windows or simply run the main script <anaxcel.py>.
+To be able to run this script make sure you have the necessary packages installed on your machine:
 
-Give examples
+######PyQt5
+Mainly use the following command under the cmd
+       ### pip install PyQt5
 
 ## Installing
 
