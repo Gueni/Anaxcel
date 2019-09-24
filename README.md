@@ -15,9 +15,14 @@ These instructions will get you a copy of the project up and running on your loc
 Either use the executable on Windows or simply run the main script <anaxcel.py>.
 To be able to run this script make sure you have the necessary packages installed on your machine:
 
-######PyQt5
+####PyQt5:
+
 Mainly use the following command under the cmd
-       ### pip install PyQt5
+```
+pip install PyQt5
+```
+If that did not work, you might try this link from SourceForge [PyQt5 .exe installers for Windows](https://sourceforge.net/projects/pyqt/files/PyQt5/).
+
 
 ## Installing
 
