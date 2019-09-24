@@ -55,7 +55,7 @@ Select what columns you wish to be the axis of the chart then hit analyse.The pr
 
 As a bonus we wanted to include multiple charts such the Donut chart. Unfortunatly , this is still a work in progress.
 
-![Screenshot](s2.png) 
+![Screenshot](s6.png) 
 
 
 ## Authors
