@@ -8,9 +8,9 @@ import openpyxl
 import pandas as pd
 import xlrd
 import xlwt
-from PyQt5 import QtGui, QtWidgets, QtCore
+from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtChart import QChart, QChartView, QPieSeries, QPieSlice
-from PyQt5.QtCore import Qt, QTimer, QCoreApplication, QSettings
+from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QPixmap, QPainter
 from PyQt5.QtWidgets import QFileDialog, QTableWidgetItem, QGridLayout, QSplashScreen
 from PyQt5.QtWidgets import QVBoxLayout
@@ -122,34 +122,7 @@ class anaxcelhandler(QtWidgets.QMainWindow, anaxcelgui.Ui_MainWindow):
     def selectall(self):
         self.listWidget.selectAll()
 
-    # def CsvProcess(self):
-    # # merge csv files
-    # fout = open("combined.csv", "a")
-    # items = self.listWidget.selectedItems()
-    # xlsfiles = []
-    # for i in list(items):
-    #     xlsfiles.append(str(i.text()))
-    # for line in open(xlsfiles[0]):
-    #     fout.write(line)
-    # for index in xlsfiles[1:]:
-    #     print(index)
-    #     # now the rest:
-    #     f = open(index)
-    #     f.__next__()  # skip the header
-    #     for line in f:
-    #         fout.write(line)
-    #     f.close()  # not really needed
-    # fout.close()
-
-    # f = open("folder/02-08-2017.CSV")
-    # for line in f:
-    #     for x in line:
-    #         if x == ';'
-    #     line.split(';')
-    #     print(line)
-    #
-    # f.close()  # not really needed
-
+    
     def xlsProcess(self):
         self.tableWidget.clear()
         items = self.listWidget.selectedItems()
@@ -308,12 +281,13 @@ class anaxcelhandler(QtWidgets.QMainWindow, anaxcelgui.Ui_MainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    # splash_pix = QPixmap('icons/splash.png')
-    # splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
-    # splash.setMask(splash_pix.mask())
-    # splash.show()
-    # time.sleep(2)
-    # splash.close()
+    splash_pix = QPixmap('icons/splash.png')
+    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
+    splash.setMask(splash_pix.mask())
+    splash.show()
+    QtWidgets.QApplication.processEvents()
+    time.sleep(2)
+    splash.close()
     window = anaxcelhandler()
     window.show()
     sys.exit(app.exec_())
