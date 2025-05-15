@@ -1,0 +1,10 @@
+# Default ignored files
+/workspace.xml
+
+# Datasource local storage ignored files
+
+/d:/4 WORKSPACE/flash/__pycache__
+/d:/4 WORKSPACE/flash/build
+/d:/4 WORKSPACE/flash/dist
+/d:/4 WORKSPACE/flash/main.spec
+/d:/WORKSPACE/Anaxcel/__pycache__
