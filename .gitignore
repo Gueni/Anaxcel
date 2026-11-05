@@ -194,3 +194,7 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# Anaxcel
+!anaxcel.spec
+.venv/
+data/sales_large.csv

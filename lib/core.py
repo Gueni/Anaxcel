@@ -16,7 +16,6 @@
 #? Author:      Mohamed Gueni ( mohamedgueni@outlook.com)
 #?
 #? Created:     11/11/2025
-#? Licence:     Refer to the LICENSE file
 #? -------------------------------------------------------------------------------
 #? -------------------------------------------------------------------------------
 from    __future__                  import  annotations
@@ -120,6 +119,20 @@ class Loader:
         return float(pd.to_numeric(sample, errors="coerce").notna().mean())
 
     @staticmethod
+    def _date_ratio(series: pd.Series) -> float:
+        """Share of a sample that reads as dates (dates make a poor default category)."""
+        sample              = series.dropna().head(200)
+        if sample.empty:
+            return 0.0
+        if pd.api.types.is_datetime64_any_dtype(sample):
+            return 1.0
+        sample              = sample[sample.map(lambda v: isinstance(v, (str, pd.Timestamp)))]
+        if sample.empty:
+            return 0.0
+        parsed              = pd.to_datetime(sample.astype(str), errors="coerce", format="mixed")
+        return float(parsed.notna().sum()) / len(series.dropna().head(200))
+
+    @staticmethod
     def guess_columns(df: pd.DataFrame):
         """Best guess for (category column, value column)."""
         cols                = list(df.columns)
@@ -127,7 +140,7 @@ class Loader:
             return None, None
         numeric             = [c for c in cols if Loader._numeric_ratio(df[c]) >= 0.8]
         value               = numeric[-1] if numeric else cols[-1]
-        text                = [c for c in cols if c not in numeric]
+        text                = [c for c in cols if c not in numeric and Loader._date_ratio(df[c]) < 0.8]
         category            = text[0] if text else next((c for c in cols if c != value), cols[0])
         return category, value
 #?----------------------------------------------------------------------------------------------------------------------------------------

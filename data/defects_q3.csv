@@ -1,0 +1,501 @@
+Date,Line,Defect,Count,Cost (EUR)
+2026-07-01,Line B,Dent,13,101.4
+2026-07-01,Line C,Dent,5,31.31
+2026-07-01,Line B,Missing part,5,7.87
+2026-07-02,Line A,Misalignment,5,38.77
+2026-07-02,Line C,Crack,8,29.97
+2026-07-03,Line A,Dent,19,71.54
+2026-07-03,Line C,Crack,19,34.96
+2026-07-03,Line B,Crack,5,7.84
+2026-07-04,Line A,Dent,19,50.24
+2026-07-04,Line A,Scratch,17,45.98
+2026-07-04,Line C,Dent,19,44.73
+2026-07-04,Line C,Misalignment,14,12.36
+2026-07-04,Line B,Missing part,5,101.49
+2026-07-05,Line C,Scratch,18,67.25
+2026-07-05,Line B,Crack,9,97.01
+2026-07-05,Line B,Burr,13,11.76
+2026-07-05,Line B,Dent,16,105.34
+2026-07-06,Line C,Dent,5,58.67
+2026-07-06,Line C,Scratch,13,90.0
+2026-07-06,Line C,Scratch,13,55.77
+2026-07-06,Line C,Burr,13,130.82
+2026-07-06,Line B,Crack,3,21.19
+2026-07-06,Line B,Scratch,4,45.91
+2026-07-07,Line A,Loose screw,17,23.94
+2026-07-07,Line B,Dent,18,66.71
+2026-07-07,Line A,Crack,12,90.61
+2026-07-07,Line A,Warping,7,87.36
+2026-07-07,Line C,Scratch,5,73.75
+2026-07-07,Line C,Dent,13,85.31
+2026-07-07,Line A,Misalignment,12,80.42
+2026-07-08,Line C,Crack,18,58.07
+2026-07-08,Line A,Dent,13,13.28
+2026-07-08,Line C,Loose screw,12,111.58
+2026-07-08,Line B,Scratch,14,24.16
+2026-07-08,Line A,Misalignment,3,39.29
+2026-07-09,Line C,Scratch,4,61.75
+2026-07-09,Line C,Scratch,7,208.1
+2026-07-09,Line B,Misalignment,4,40.62
+2026-07-09,Line B,Bad solder,7,163.28
+2026-07-09,Line C,Crack,15,24.25
+2026-07-09,Line C,Misalignment,12,100.57
+2026-07-09,Line A,Scratch,1,77.21
+2026-07-09,Line C,Scratch,9,8.44
+2026-07-09,Line C,Misalignment,7,74.86
+2026-07-10,Line C,Dent,7,116.84
+2026-07-10,Line C,Dent,3,35.81
+2026-07-10,Line B,Crack,7,107.0
+2026-07-10,Line A,Dent,8,137.49
+2026-07-11,Line A,Dent,18,63.77
+2026-07-11,Line C,Misalignment,19,77.69
+2026-07-11,Line A,Dent,12,102.18
+2026-07-11,Line C,Dent,12,95.69
+2026-07-11,Line C,Crack,14,14.97
+2026-07-11,Line B,Loose screw,12,41.37
+2026-07-12,Line B,Scratch,11,41.8
+2026-07-12,Line C,Burr,12,7.14
+2026-07-12,Line C,Scratch,10,84.21
+2026-07-12,Line A,Crack,2,181.57
+2026-07-12,Line B,Scratch,4,184.75
+2026-07-13,Line A,Dent,4,116.65
+2026-07-13,Line C,Dent,12,88.96
+2026-07-13,Line B,Scratch,7,13.91
+2026-07-13,Line A,Missing part,10,38.17
+2026-07-13,Line C,Dent,11,102.91
+2026-07-13,Line B,Scratch,17,102.68
+2026-07-13,Line B,Crack,5,96.67
+2026-07-13,Line B,Scratch,14,48.2
+2026-07-13,Line C,Scratch,7,32.18
+2026-07-13,Line B,Dent,6,139.84
+2026-07-13,Line A,Dent,7,89.91
+2026-07-14,Line B,Bad solder,13,74.95
+2026-07-14,Line B,Dent,18,60.74
+2026-07-14,Line B,Misalignment,3,59.5
+2026-07-14,Line C,Misalignment,15,81.73
+2026-07-14,Line A,Missing part,2,69.67
+2026-07-15,Line B,Burr,16,166.08
+2026-07-15,Line A,Dent,6,53.72
+2026-07-15,Line A,Discoloration,7,14.77
+2026-07-15,Line B,Scratch,10,101.21
+2026-07-15,Line C,Scratch,7,67.96
+2026-07-15,Line C,Dent,14,87.5
+2026-07-15,Line C,Bad solder,11,103.82
+2026-07-16,Line A,Scratch,10,88.21
+2026-07-16,Line A,Misalignment,14,16.4
+2026-07-16,Line C,Scratch,16,56.78
+2026-07-16,Line C,Dent,11,29.91
+2026-07-17,Line C,Scratch,12,61.79
+2026-07-17,Line A,Dent,9,64.53
+2026-07-17,Line A,Scratch,12,33.96
+2026-07-17,Line B,Scratch,2,88.87
+2026-07-17,Line A,Dent,2,55.65
+2026-07-17,Line C,Dent,6,17.52
+2026-07-17,Line C,Scratch,2,25.21
+2026-07-17,Line A,Misalignment,7,104.36
+2026-07-17,Line A,Scratch,11,91.05
+2026-07-17,Line C,Missing part,17,95.51
+2026-07-17,Line B,Misalignment,10,233.07
+2026-07-17,Line A,Crack,10,10.15
+2026-07-17,Line A,Scratch,17,59.09
+2026-07-18,Line A,Dent,17,37.34
+2026-07-18,Line B,Dent,12,82.84
+2026-07-18,Line B,Loose screw,2,142.34
+2026-07-18,Line B,Crack,16,54.45
+2026-07-18,Line B,Dent,16,66.42
+2026-07-19,Line B,Scratch,16,49.77
+2026-07-19,Line C,Misalignment,5,28.71
+2026-07-19,Line C,Missing part,8,112.16
+2026-07-19,Line A,Dent,9,54.78
+2026-07-19,Line A,Bad solder,5,264.64
+2026-07-19,Line C,Dent,10,89.95
+2026-07-19,Line A,Dent,16,50.98
+2026-07-19,Line A,Crack,12,64.63
+2026-07-19,Line B,Scratch,1,80.21
+2026-07-20,Line B,Bad solder,4,91.33
+2026-07-20,Line C,Dent,11,30.1
+2026-07-20,Line B,Crack,13,24.43
+2026-07-20,Line C,Scratch,18,172.85
+2026-07-20,Line C,Crack,19,88.43
+2026-07-20,Line C,Dent,15,77.98
+2026-07-20,Line C,Crack,1,51.31
+2026-07-20,Line C,Misalignment,8,19.43
+2026-07-21,Line B,Crack,3,24.4
+2026-07-22,Line B,Scratch,17,37.19
+2026-07-22,Line B,Scratch,5,23.94
+2026-07-22,Line C,Dent,13,74.28
+2026-07-22,Line C,Dent,4,179.26
+2026-07-22,Line C,Scratch,12,35.18
+2026-07-22,Line B,Scratch,4,56.39
+2026-07-22,Line C,Dent,16,50.86
+2026-07-22,Line B,Bad solder,7,97.5
+2026-07-23,Line C,Bad solder,2,27.86
+2026-07-23,Line B,Misalignment,10,36.78
+2026-07-23,Line C,Dent,19,24.21
+2026-07-23,Line B,Scratch,17,77.63
+2026-07-23,Line C,Scratch,7,59.77
+2026-07-24,Line B,Discoloration,16,66.2
+2026-07-24,Line C,Scratch,5,166.85
+2026-07-24,Line B,Scratch,19,46.63
+2026-07-24,Line C,Misalignment,3,83.8
+2026-07-25,Line A,Scratch,18,49.49
+2026-07-25,Line A,Scratch,11,40.73
+2026-07-25,Line A,Scratch,10,28.97
+2026-07-25,Line C,Dent,12,150.51
+2026-07-25,Line A,Scratch,5,109.0
+2026-07-26,Line B,Discoloration,4,35.88
+2026-07-26,Line A,Discoloration,14,61.69
+2026-07-26,Line C,Dent,12,55.84
+2026-07-26,Line A,Misalignment,18,209.68
+2026-07-27,Line C,Dent,17,98.61
+2026-07-27,Line A,Scratch,9,113.5
+2026-07-27,Line A,Crack,11,48.05
+2026-07-27,Line A,Discoloration,14,7.35
+2026-07-27,Line B,Scratch,11,85.17
+2026-07-27,Line A,Dent,10,22.9
+2026-07-28,Line A,Scratch,12,47.98
+2026-07-28,Line B,Missing part,1,92.82
+2026-07-28,Line A,Misalignment,5,47.35
+2026-07-28,Line A,Scratch,14,8.7
+2026-07-28,Line A,Dent,16,77.53
+2026-07-28,Line A,Scratch,18,76.0
+2026-07-29,Line C,Crack,7,41.73
+2026-07-29,Line C,Scratch,4,44.89
+2026-07-29,Line B,Loose screw,1,30.57
+2026-07-29,Line B,Scratch,15,12.04
+2026-07-29,Line A,Discoloration,4,164.15
+2026-07-29,Line A,Misalignment,4,6.84
+2026-07-29,Line C,Missing part,1,156.81
+2026-07-29,Line A,Scratch,11,9.18
+2026-07-29,Line C,Scratch,18,116.33
+2026-07-29,Line C,Scratch,17,69.33
+2026-07-29,Line A,Dent,2,69.05
+2026-07-30,Line A,Scratch,19,81.75
+2026-07-30,Line C,Crack,11,60.69
+2026-07-30,Line B,Dent,7,49.45
+2026-07-30,Line B,Scratch,12,75.03
+2026-07-31,Line C,Dent,12,166.83
+2026-07-31,Line A,Scratch,7,33.08
+2026-07-31,Line A,Scratch,7,13.3
+2026-07-31,Line B,Wrong label,8,57.82
+2026-07-31,Line C,Scratch,19,106.94
+2026-07-31,Line A,Dent,6,59.32
+2026-07-31,Line C,Scratch,2,42.24
+2026-07-31,Line A,Dent,16,117.11
+2026-07-31,Line A,Scratch,7,12.73
+2026-07-31,Line C,Crack,5,64.78
+2026-08-01,Line C,Misalignment,6,98.58
+2026-08-01,Line B,Dent,17,125.71
+2026-08-01,Line B,Contamination,5,115.65
+2026-08-01,Line C,Scratch,16,66.9
+2026-08-02,Line A,Dent,8,12.98
+2026-08-02,Line A,Misalignment,13,51.38
+2026-08-02,Line B,Discoloration,12,8.84
+2026-08-03,Line B,Scratch,14,50.49
+2026-08-03,Line B,Misalignment,4,77.4
+2026-08-03,Line A,Misalignment,6,8.24
+2026-08-03,Line C,Dent,3,74.19
+2026-08-03,Line C,Dent,9,69.59
+2026-08-03,Line A,Scratch,4,35.78
+2026-08-04,Line B,Misalignment,12,88.08
+2026-08-04,Line B,Scratch,18,215.65
+2026-08-04,Line C,Scratch,17,59.62
+2026-08-05,Line C,Scratch,3,76.37
+2026-08-05,Line B,Dent,7,33.02
+2026-08-05,Line A,Scratch,14,52.49
+2026-08-05,Line C,Scratch,6,39.57
+2026-08-05,Line C,Missing part,12,124.77
+2026-08-05,Line A,Dent,4,77.18
+2026-08-06,Line B,Scratch,16,97.2
+2026-08-06,Line C,Burr,8,69.3
+2026-08-06,Line C,Dent,8,96.09
+2026-08-06,Line A,Scratch,19,34.59
+2026-08-06,Line C,Scratch,10,58.81
+2026-08-06,Line B,Bad solder,5,42.69
+2026-08-07,Line A,Scratch,11,49.1
+2026-08-07,Line C,Scratch,7,28.45
+2026-08-07,Line A,Scratch,11,22.75
+2026-08-07,Line B,Dent,9,36.43
+2026-08-07,Line A,Scratch,13,105.64
+2026-08-07,Line B,Crack,13,31.5
+2026-08-08,Line B,Loose screw,8,48.96
+2026-08-08,Line C,Scratch,15,125.35
+2026-08-08,Line C,Scratch,9,110.65
+2026-08-08,Line C,Dent,17,102.96
+2026-08-08,Line C,Loose screw,14,44.73
+2026-08-08,Line C,Misalignment,1,72.3
+2026-08-08,Line A,Discoloration,1,126.95
+2026-08-08,Line A,Scratch,10,27.13
+2026-08-08,Line A,Misalignment,5,33.46
+2026-08-09,Line B,Crack,15,93.69
+2026-08-09,Line C,Bad solder,16,118.81
+2026-08-09,Line B,Scratch,5,81.23
+2026-08-09,Line C,Missing part,13,53.79
+2026-08-09,Line A,Dent,9,108.99
+2026-08-09,Line B,Misalignment,12,22.28
+2026-08-09,Line A,Misalignment,8,65.19
+2026-08-09,Line A,Missing part,10,113.73
+2026-08-09,Line A,Misalignment,5,37.46
+2026-08-09,Line A,Scratch,5,128.15
+2026-08-10,Line C,Warping,9,131.38
+2026-08-10,Line C,Discoloration,10,50.27
+2026-08-10,Line B,Scratch,3,144.78
+2026-08-10,Line B,Dent,15,24.19
+2026-08-10,Line C,Dent,14,111.0
+2026-08-10,Line A,Missing part,9,66.41
+2026-08-11,Line B,Scratch,7,46.86
+2026-08-11,Line A,Dent,10,167.08
+2026-08-12,Line B,Scratch,13,47.44
+2026-08-12,Line A,Discoloration,17,27.97
+2026-08-12,Line C,Crack,16,38.46
+2026-08-12,Line A,Dent,15,79.4
+2026-08-12,Line B,Burr,5,71.36
+2026-08-12,Line A,Misalignment,9,117.36
+2026-08-12,Line B,Scratch,17,85.65
+2026-08-12,Line C,Missing part,4,76.8
+2026-08-13,Line A,Missing part,12,6.64
+2026-08-13,Line A,Misalignment,11,74.11
+2026-08-13,Line C,Discoloration,9,73.21
+2026-08-13,Line C,Dent,5,70.31
+2026-08-14,Line B,Discoloration,14,26.08
+2026-08-14,Line A,Discoloration,13,33.27
+2026-08-14,Line C,Scratch,19,39.28
+2026-08-14,Line C,Scratch,8,47.2
+2026-08-14,Line A,Scratch,15,5.07
+2026-08-14,Line C,Scratch,12,13.63
+2026-08-14,Line B,Misalignment,16,21.72
+2026-08-14,Line A,Scratch,15,55.44
+2026-08-15,Line C,Scratch,18,139.37
+2026-08-15,Line A,Dent,19,39.06
+2026-08-15,Line A,Crack,1,41.64
+2026-08-15,Line C,Dent,15,54.06
+2026-08-16,Line B,Scratch,7,62.96
+2026-08-16,Line A,Loose screw,5,42.8
+2026-08-16,Line A,Scratch,15,58.26
+2026-08-16,Line B,Loose screw,19,85.59
+2026-08-16,Line C,Scratch,16,14.31
+2026-08-16,Line B,Misalignment,3,26.25
+2026-08-16,Line B,Missing part,7,21.75
+2026-08-16,Line A,Misalignment,9,16.31
+2026-08-17,Line B,Scratch,6,121.69
+2026-08-17,Line C,Contamination,15,103.93
+2026-08-17,Line C,Misalignment,18,23.58
+2026-08-17,Line C,Dent,5,93.62
+2026-08-17,Line B,Dent,11,36.67
+2026-08-17,Line B,Misalignment,3,34.83
+2026-08-17,Line B,Scratch,17,79.08
+2026-08-17,Line A,Crack,14,202.86
+2026-08-18,Line C,Dent,18,101.13
+2026-08-18,Line C,Scratch,1,26.54
+2026-08-18,Line C,Dent,7,59.08
+2026-08-18,Line B,Missing part,5,46.76
+2026-08-18,Line A,Discoloration,15,39.66
+2026-08-19,Line B,Misalignment,13,33.7
+2026-08-19,Line A,Missing part,17,9.73
+2026-08-19,Line A,Scratch,14,31.84
+2026-08-19,Line C,Crack,11,127.05
+2026-08-19,Line B,Scratch,19,106.77
+2026-08-19,Line A,Misalignment,10,100.96
+2026-08-19,Line B,Scratch,13,84.63
+2026-08-19,Line B,Dent,6,77.65
+2026-08-20,Line B,Discoloration,7,77.9
+2026-08-20,Line B,Scratch,1,89.33
+2026-08-20,Line C,Crack,4,78.63
+2026-08-21,Line A,Dent,16,16.64
+2026-08-21,Line C,Scratch,16,101.32
+2026-08-21,Line C,Dent,3,42.38
+2026-08-21,Line C,Scratch,13,87.75
+2026-08-22,Line C,Scratch,3,55.91
+2026-08-22,Line A,Scratch,16,5.42
+2026-08-22,Line A,Scratch,12,48.52
+2026-08-22,Line C,Dent,6,138.67
+2026-08-22,Line B,Scratch,14,38.18
+2026-08-22,Line C,Scratch,18,143.96
+2026-08-23,Line C,Scratch,15,97.78
+2026-08-23,Line C,Warping,5,63.98
+2026-08-23,Line B,Crack,12,51.34
+2026-08-23,Line C,Crack,16,286.52
+2026-08-23,Line C,Dent,14,175.5
+2026-08-23,Line C,Misalignment,11,8.84
+2026-08-24,Line C,Discoloration,19,63.08
+2026-08-24,Line A,Scratch,5,24.78
+2026-08-24,Line B,Discoloration,10,83.23
+2026-08-24,Line C,Dent,14,94.4
+2026-08-24,Line C,Misalignment,7,49.76
+2026-08-25,Line C,Scratch,9,193.96
+2026-08-25,Line A,Misalignment,10,60.0
+2026-08-25,Line C,Scratch,13,97.08
+2026-08-25,Line A,Dent,8,46.28
+2026-08-25,Line A,Missing part,8,70.18
+2026-08-26,Line B,Loose screw,11,9.43
+2026-08-26,Line B,Discoloration,8,47.41
+2026-08-26,Line C,Scratch,12,85.51
+2026-08-27,Line B,Dent,6,123.01
+2026-08-27,Line B,Dent,1,11.9
+2026-08-28,Line A,Dent,14,107.31
+2026-08-28,Line C,Discoloration,10,32.55
+2026-08-28,Line A,Burr,10,7.83
+2026-08-28,Line A,Scratch,18,35.55
+2026-08-28,Line B,Scratch,7,45.38
+2026-08-28,Line A,Missing part,11,32.11
+2026-08-28,Line A,Dent,7,103.26
+2026-08-28,Line B,Crack,10,57.94
+2026-08-28,Line B,Contamination,9,39.05
+2026-08-28,Line C,Misalignment,11,44.43
+2026-08-28,Line A,Scratch,17,155.93
+2026-08-29,Line B,Crack,1,47.06
+2026-08-29,Line A,Misalignment,12,89.79
+2026-08-29,Line A,Dent,6,17.92
+2026-08-29,Line B,Scratch,6,14.53
+2026-08-29,Line B,Contamination,18,111.74
+2026-08-29,Line B,Dent,19,19.53
+2026-08-29,Line C,Dent,7,47.19
+2026-08-29,Line C,Scratch,7,114.42
+2026-08-30,Line C,Misalignment,11,184.42
+2026-08-30,Line B,Scratch,2,49.77
+2026-08-30,Line B,Misalignment,16,66.73
+2026-08-30,Line C,Loose screw,9,65.44
+2026-08-30,Line B,Loose screw,18,21.63
+2026-08-30,Line A,Loose screw,11,10.56
+2026-08-30,Line B,Dent,18,60.61
+2026-08-30,Line A,Dent,5,70.14
+2026-08-31,Line B,Discoloration,16,88.32
+2026-08-31,Line C,Bad solder,15,13.29
+2026-09-01,Line A,Scratch,9,34.43
+2026-09-01,Line C,Dent,9,78.47
+2026-09-01,Line B,Discoloration,10,73.34
+2026-09-01,Line C,Misalignment,7,31.24
+2026-09-01,Line A,Scratch,4,158.6
+2026-09-02,Line C,Bad solder,4,44.0
+2026-09-02,Line B,Dent,6,174.69
+2026-09-02,Line B,Missing part,4,58.93
+2026-09-03,Line C,Dent,3,144.91
+2026-09-03,Line B,Scratch,12,123.13
+2026-09-03,Line A,Scratch,10,84.5
+2026-09-03,Line C,Dent,4,133.01
+2026-09-03,Line B,Scratch,19,123.67
+2026-09-03,Line C,Scratch,9,50.24
+2026-09-03,Line B,Dent,5,94.67
+2026-09-03,Line C,Dent,19,78.47
+2026-09-03,Line A,Scratch,6,194.07
+2026-09-03,Line B,Scratch,14,100.97
+2026-09-03,Line C,Dent,19,57.98
+2026-09-04,Line A,Loose screw,7,100.56
+2026-09-04,Line A,Scratch,8,88.05
+2026-09-04,Line A,Scratch,6,119.72
+2026-09-05,Line C,Scratch,1,86.06
+2026-09-05,Line A,Scratch,2,108.5
+2026-09-05,Line B,Dent,13,82.81
+2026-09-05,Line C,Dent,14,35.34
+2026-09-05,Line A,Misalignment,10,143.15
+2026-09-06,Line A,Misalignment,18,38.98
+2026-09-06,Line B,Scratch,13,45.35
+2026-09-06,Line A,Missing part,17,73.16
+2026-09-06,Line A,Wrong label,1,125.89
+2026-09-06,Line A,Misalignment,3,23.97
+2026-09-06,Line B,Scratch,8,93.46
+2026-09-07,Line A,Misalignment,17,25.42
+2026-09-07,Line A,Dent,15,56.06
+2026-09-08,Line C,Dent,3,36.72
+2026-09-08,Line B,Scratch,2,19.79
+2026-09-08,Line B,Dent,8,29.84
+2026-09-08,Line B,Dent,15,80.42
+2026-09-08,Line A,Crack,2,13.17
+2026-09-10,Line B,Contamination,14,175.14
+2026-09-10,Line A,Wrong label,13,53.62
+2026-09-10,Line C,Dent,11,64.08
+2026-09-10,Line B,Bad solder,10,46.64
+2026-09-10,Line C,Scratch,17,64.92
+2026-09-11,Line B,Scratch,2,27.8
+2026-09-11,Line B,Misalignment,6,71.06
+2026-09-12,Line B,Misalignment,17,20.86
+2026-09-12,Line B,Dent,1,97.7
+2026-09-12,Line B,Dent,15,36.37
+2026-09-12,Line C,Dent,5,111.06
+2026-09-12,Line B,Scratch,5,58.3
+2026-09-12,Line C,Scratch,15,73.89
+2026-09-12,Line A,Misalignment,8,125.48
+2026-09-12,Line C,Contamination,12,80.47
+2026-09-12,Line A,Missing part,5,55.96
+2026-09-12,Line C,Scratch,17,58.43
+2026-09-12,Line A,Discoloration,6,36.91
+2026-09-12,Line B,Discoloration,15,11.09
+2026-09-13,Line C,Scratch,18,30.87
+2026-09-13,Line C,Dent,17,134.13
+2026-09-13,Line B,Scratch,12,29.19
+2026-09-13,Line A,Scratch,16,81.25
+2026-09-13,Line C,Discoloration,10,12.0
+2026-09-14,Line B,Scratch,11,11.01
+2026-09-14,Line A,Scratch,19,24.42
+2026-09-14,Line B,Misalignment,10,47.57
+2026-09-14,Line B,Scratch,7,76.6
+2026-09-14,Line B,Dent,13,25.15
+2026-09-15,Line A,Dent,15,48.64
+2026-09-15,Line A,Misalignment,19,38.07
+2026-09-15,Line A,Discoloration,6,100.22
+2026-09-15,Line C,Bad solder,14,194.58
+2026-09-15,Line A,Scratch,4,33.72
+2026-09-16,Line A,Scratch,13,48.35
+2026-09-16,Line C,Misalignment,13,99.79
+2026-09-16,Line C,Scratch,8,40.91
+2026-09-16,Line B,Scratch,15,70.02
+2026-09-17,Line A,Scratch,13,57.15
+2026-09-17,Line B,Discoloration,4,2.72
+2026-09-17,Line C,Scratch,12,168.84
+2026-09-17,Line C,Crack,16,83.5
+2026-09-17,Line C,Dent,4,23.8
+2026-09-18,Line C,Crack,5,23.98
+2026-09-18,Line A,Discoloration,7,59.75
+2026-09-18,Line B,Discoloration,16,115.35
+2026-09-18,Line B,Dent,9,108.27
+2026-09-18,Line C,Scratch,2,126.26
+2026-09-18,Line A,Dent,3,60.47
+2026-09-19,Line B,Dent,12,72.38
+2026-09-19,Line C,Wrong label,15,63.98
+2026-09-19,Line A,Scratch,3,69.43
+2026-09-20,Line C,Misalignment,17,61.01
+2026-09-20,Line C,Scratch,12,32.59
+2026-09-20,Line C,Loose screw,16,20.91
+2026-09-20,Line C,Misalignment,6,50.34
+2026-09-20,Line C,Dent,1,80.9
+2026-09-20,Line C,Scratch,6,40.54
+2026-09-20,Line C,Warping,2,50.64
+2026-09-21,Line B,Dent,12,58.2
+2026-09-21,Line C,Scratch,3,22.71
+2026-09-21,Line B,Scratch,10,49.48
+2026-09-22,Line C,Loose screw,8,79.19
+2026-09-22,Line B,Crack,5,45.16
+2026-09-22,Line B,Dent,14,26.98
+2026-09-22,Line A,Missing part,17,31.65
+2026-09-22,Line A,Loose screw,4,52.89
+2026-09-22,Line A,Scratch,8,131.03
+2026-09-22,Line A,Crack,18,50.78
+2026-09-22,Line B,Scratch,8,72.88
+2026-09-22,Line B,Dent,8,47.0
+2026-09-23,Line A,Crack,5,77.66
+2026-09-24,Line A,Discoloration,12,264.21
+2026-09-24,Line B,Dent,11,31.0
+2026-09-24,Line B,Dent,5,65.49
+2026-09-24,Line A,Warping,5,36.35
+2026-09-24,Line A,Scratch,12,45.34
+2026-09-24,Line A,Scratch,5,81.41
+2026-09-24,Line B,Scratch,4,119.25
+2026-09-24,Line B,Dent,13,55.98
+2026-09-25,Line C,Dent,17,93.73
+2026-09-25,Line B,Dent,10,61.36
+2026-09-25,Line B,Scratch,19,24.66
+2026-09-25,Line C,Dent,15,205.76
+2026-09-26,Line B,Discoloration,17,22.63
+2026-09-26,Line B,Loose screw,6,25.37
+2026-09-26,Line B,Dent,4,249.19
+2026-09-27,Line B,Dent,3,32.78
+2026-09-27,Line C,Crack,1,94.18
+2026-09-27,Line B,Scratch,8,91.85
+2026-09-28,Line B,Scratch,18,82.46
+2026-09-28,Line C,Scratch,4,12.02
+2026-09-28,Line C,Misalignment,10,108.05
+2026-09-28,Line C,Scratch,18,192.4
+2026-09-28,Line A,Dent,17,19.47
+2026-09-28,Line C,Scratch,12,80.98
+2026-09-28,Line B,Missing part,2,26.88
+2026-09-28,Line A,Crack,11,34.44

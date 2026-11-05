@@ -16,7 +16,6 @@
 #? Author:      Mohamed Gueni ( mohamedgueni@outlook.com)
 #?
 #? Created:     11/11/2025
-#? Licence:     Refer to the LICENSE file
 #? -------------------------------------------------------------------------------
 #? -------------------------------------------------------------------------------
 from    lib.anaxcel                 import  App

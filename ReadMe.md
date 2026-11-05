@@ -2,8 +2,6 @@
 
 A Python desktop app for combining Excel/CSV files and analysing them with Pareto and donut charts.
 
-Anaxcel is free software under the GPLv2 license.
-
 ![Data view](assets/screenshots/data.png)
 
 ## Features
@@ -53,6 +51,18 @@ Light theme in a small window:
 | Remove selected files | Del (in the file list) |
 | About | F1 |
 
+## Building the Windows installer
+
+Requires Python 3.9+ and [Inno Setup 6](https://jrsoftware.org/isinfo.php) (`winget install JRSoftware.InnoSetup`).
+
+```
+powershell -ExecutionPolicy Bypass -File build.ps1
+```
+
+This creates `.venv`, installs `requirements-dev.txt`, generates sample files in `data/`, runs the tests, builds `dist\Anaxcel\Anaxcel.exe` with PyInstaller and packages `dist\Anaxcel-<version>-Setup.exe`. Use `-SkipTests` to skip the tests.
+
+To run the tests alone: `py tools\make_sample_data.py` then `py -m pytest -q`.
+
 ## Project layout
 
 ```
@@ -62,10 +72,11 @@ lib/anaxcelgui.py  main window: layout and widgets
 lib/charts.py      Pareto (matplotlib) and donut (Qt Charts) widgets
 lib/core.py        file loading, Pareto maths, table model (no widgets)
 lib/theme.py       light/dark colour tokens and stylesheet
-lib/dialogs.py     About and License dialogs
+lib/dialogs.py     About dialog
 assets/            icons and screenshots
+data/              sample spreadsheets (tools/make_sample_data.py)
+tests/             smoke tests
+anaxcel.spec       PyInstaller build
+installer/         Inno Setup script and exe version info
+build.ps1          one-shot build: venv, tests, exe, installer
 ```
-
-## License
-
-Released under the GNU General Public License, version 2.

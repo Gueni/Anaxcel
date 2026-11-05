@@ -1,0 +1,301 @@
+Date;Line;Defect;Count;Cost (EUR)
+2026-10-01;Line B;Scratch;8;21.29
+2026-10-01;Line A;Dent;6;38.48
+2026-10-01;Line B;Scratch;6;6.82
+2026-10-02;Line A;Scratch;2;112.05
+2026-10-03;Line B;Burr;4;95.79
+2026-10-03;Line C;Dent;11;120.72
+2026-10-03;Line B;Dent;9;21.13
+2026-10-03;Line B;Misalignment;6;122.53
+2026-10-03;Line B;Dent;10;20.39
+2026-10-03;Line C;Dent;7;38.49
+2026-10-04;Line A;Scratch;5;53.88
+2026-10-04;Line C;Contamination;17;56.92
+2026-10-04;Line C;Dent;13;86.26
+2026-10-04;Line A;Scratch;14;75.7
+2026-10-04;Line B;Scratch;8;127.92
+2026-10-04;Line A;Scratch;13;16.15
+2026-10-05;Line C;Scratch;10;145.75
+2026-10-05;Line A;Scratch;9;205.31
+2026-10-05;Line B;Misalignment;7;60.75
+2026-10-05;Line B;Misalignment;2;61.72
+2026-10-06;Line A;Crack;3;81.7
+2026-10-07;Line B;Dent;10;64.14
+2026-10-07;Line B;Misalignment;8;60.22
+2026-10-07;Line A;Dent;3;39.42
+2026-10-07;Line C;Scratch;4;134.19
+2026-10-08;Line C;Scratch;2;115.77
+2026-10-08;Line C;Misalignment;7;52.34
+2026-10-08;Line B;Misalignment;2;165.48
+2026-10-08;Line C;Dent;16;119.89
+2026-10-09;Line B;Loose screw;7;24.59
+2026-10-09;Line C;Bad solder;2;260.85
+2026-10-09;Line A;Wrong label;2;47.2
+2026-10-09;Line A;Misalignment;18;36.95
+2026-10-10;Line C;Misalignment;4;30.38
+2026-10-10;Line A;Dent;7;70.49
+2026-10-11;Line A;Scratch;11;199.75
+2026-10-12;Line B;Contamination;13;42.87
+2026-10-13;Line C;Crack;18;104.64
+2026-10-13;Line B;Scratch;5;37.24
+2026-10-13;Line C;Loose screw;7;11.34
+2026-10-14;Line C;Missing part;4;50.06
+2026-10-14;Line C;Misalignment;17;33.21
+2026-10-14;Line A;Misalignment;17;247.55
+2026-10-14;Line B;Missing part;4;65.47
+2026-10-14;Line C;Dent;19;42.96
+2026-10-14;Line C;Scratch;13;59.55
+2026-10-14;Line C;Crack;1;64.94
+2026-10-15;Line A;Scratch;14;55.42
+2026-10-16;Line B;Scratch;19;15.01
+2026-10-16;Line C;Wrong label;7;64.64
+2026-10-16;Line A;Dent;3;84.92
+2026-10-16;Line B;Scratch;13;110.44
+2026-10-16;Line B;Scratch;12;65.28
+2026-10-17;Line A;Dent;6;43.11
+2026-10-17;Line A;Dent;16;70.45
+2026-10-17;Line B;Dent;8;152.11
+2026-10-18;Line C;Crack;19;52.94
+2026-10-18;Line B;Scratch;14;71.42
+2026-10-18;Line B;Contamination;3;155.02
+2026-10-18;Line A;Misalignment;14;90.83
+2026-10-18;Line C;Dent;13;23.06
+2026-10-18;Line C;Bad solder;14;44.55
+2026-10-18;Line C;Crack;1;159.84
+2026-10-19;Line A;Scratch;1;129.78
+2026-10-19;Line C;Misalignment;14;53.14
+2026-10-19;Line A;Dent;8;18.09
+2026-10-19;Line C;Crack;17;210.88
+2026-10-20;Line A;Scratch;18;28.57
+2026-10-20;Line C;Crack;15;95.09
+2026-10-20;Line B;Scratch;11;46.2
+2026-10-21;Line B;Scratch;11;45.72
+2026-10-21;Line C;Scratch;19;34.08
+2026-10-21;Line A;Scratch;14;47.62
+2026-10-22;Line B;Dent;8;80.27
+2026-10-23;Line A;Dent;3;22.06
+2026-10-23;Line C;Scratch;10;14.2
+2026-10-24;Line B;Scratch;19;9.92
+2026-10-24;Line B;Dent;12;36.58
+2026-10-24;Line B;Crack;14;22.99
+2026-10-25;Line C;Burr;8;42.02
+2026-10-25;Line A;Scratch;7;17.25
+2026-10-25;Line B;Dent;13;40.36
+2026-10-25;Line C;Discoloration;16;65.1
+2026-10-25;Line A;Misalignment;6;158.89
+2026-10-26;Line C;Crack;1;150.96
+2026-10-26;Line A;Loose screw;13;122.89
+2026-10-26;Line A;Misalignment;18;34.17
+2026-10-27;Line C;Misalignment;19;40.38
+2026-10-27;Line C;Crack;9;83.33
+2026-10-27;Line A;Crack;7;182.42
+2026-10-28;Line A;Dent;6;44.36
+2026-10-28;Line A;Scratch;18;33.74
+2026-10-29;Line C;Dent;17;32.43
+2026-10-29;Line A;Missing part;9;100.74
+2026-10-30;Line B;Dent;10;154.04
+2026-10-31;Line C;Missing part;18;39.32
+2026-10-31;Line C;Scratch;12;46.58
+2026-11-01;Line C;Misalignment;2;14.09
+2026-11-01;Line A;Misalignment;12;40.63
+2026-11-01;Line A;Crack;12;64.12
+2026-11-01;Line B;Missing part;16;71.56
+2026-11-01;Line A;Misalignment;8;10.52
+2026-11-02;Line B;Scratch;8;66.22
+2026-11-02;Line B;Scratch;11;57.84
+2026-11-02;Line B;Crack;15;42.51
+2026-11-03;Line A;Burr;9;167.26
+2026-11-03;Line C;Loose screw;6;41.5
+2026-11-03;Line B;Discoloration;3;13.4
+2026-11-03;Line B;Scratch;7;46.22
+2026-11-04;Line B;Loose screw;15;87.5
+2026-11-04;Line B;Crack;7;31.5
+2026-11-04;Line C;Misalignment;19;90.55
+2026-11-04;Line A;Dent;12;39.0
+2026-11-05;Line A;Crack;10;200.22
+2026-11-05;Line A;Misalignment;2;78.32
+2026-11-05;Line C;Misalignment;9;180.83
+2026-11-05;Line C;Misalignment;8;45.57
+2026-11-05;Line C;Missing part;19;35.53
+2026-11-05;Line A;Dent;8;86.53
+2026-11-05;Line A;Discoloration;7;116.77
+2026-11-06;Line B;Scratch;7;171.96
+2026-11-07;Line B;Scratch;7;112.73
+2026-11-07;Line B;Crack;11;15.16
+2026-11-07;Line A;Crack;2;77.23
+2026-11-08;Line A;Crack;14;92.98
+2026-11-08;Line B;Wrong label;10;133.45
+2026-11-08;Line C;Missing part;19;94.28
+2026-11-08;Line A;Discoloration;19;44.74
+2026-11-08;Line B;Bad solder;12;75.49
+2026-11-08;Line A;Scratch;14;74.96
+2026-11-08;Line C;Discoloration;2;66.16
+2026-11-08;Line C;Scratch;9;15.22
+2026-11-09;Line B;Dent;15;113.43
+2026-11-09;Line C;Scratch;19;84.35
+2026-11-09;Line B;Loose screw;6;56.45
+2026-11-10;Line C;Dent;16;54.15
+2026-11-10;Line A;Warping;12;80.48
+2026-11-10;Line B;Missing part;2;28.71
+2026-11-10;Line C;Scratch;13;41.86
+2026-11-10;Line B;Wrong label;11;20.76
+2026-11-10;Line B;Dent;16;50.24
+2026-11-11;Line B;Missing part;15;60.57
+2026-11-11;Line A;Loose screw;11;68.91
+2026-11-11;Line C;Discoloration;15;15.24
+2026-11-11;Line C;Missing part;10;52.71
+2026-11-11;Line B;Crack;13;128.82
+2026-11-11;Line B;Scratch;2;159.24
+2026-11-11;Line B;Scratch;11;36.48
+2026-11-12;Line C;Scratch;10;63.71
+2026-11-12;Line C;Scratch;2;78.92
+2026-11-12;Line A;Discoloration;10;63.64
+2026-11-13;Line B;Scratch;12;49.75
+2026-11-13;Line A;Crack;1;36.04
+2026-11-13;Line B;Crack;5;96.66
+2026-11-14;Line B;Wrong label;17;48.93
+2026-11-14;Line C;Discoloration;12;74.9
+2026-11-14;Line A;Wrong label;13;45.41
+2026-11-14;Line C;Dent;13;49.54
+2026-11-14;Line B;Scratch;17;87.55
+2026-11-15;Line C;Loose screw;8;174.73
+2026-11-15;Line A;Scratch;15;41.22
+2026-11-15;Line C;Misalignment;6;57.62
+2026-11-15;Line A;Missing part;11;116.0
+2026-11-15;Line B;Discoloration;9;35.24
+2026-11-16;Line B;Misalignment;6;160.75
+2026-11-16;Line B;Discoloration;15;46.68
+2026-11-17;Line C;Burr;8;99.84
+2026-11-17;Line C;Misalignment;16;41.35
+2026-11-18;Line B;Scratch;13;28.94
+2026-11-18;Line B;Dent;13;147.55
+2026-11-18;Line A;Dent;1;67.69
+2026-11-19;Line A;Missing part;7;122.18
+2026-11-20;Line C;Dent;17;145.81
+2026-11-20;Line C;Discoloration;12;43.96
+2026-11-20;Line A;Scratch;18;115.49
+2026-11-20;Line C;Scratch;10;127.27
+2026-11-20;Line B;Discoloration;19;47.95
+2026-11-20;Line C;Scratch;10;31.46
+2026-11-20;Line C;Scratch;15;97.68
+2026-11-21;Line A;Burr;13;94.21
+2026-11-22;Line A;Dent;1;38.93
+2026-11-23;Line C;Burr;9;82.06
+2026-11-23;Line A;Dent;3;11.71
+2026-11-23;Line C;Scratch;2;229.32
+2026-11-24;Line B;Scratch;19;31.3
+2026-11-24;Line C;Scratch;17;23.17
+2026-11-24;Line B;Scratch;16;37.17
+2026-11-25;Line B;Misalignment;4;87.85
+2026-11-25;Line A;Crack;2;53.91
+2026-11-25;Line B;Scratch;6;48.51
+2026-11-25;Line C;Misalignment;7;25.28
+2026-11-26;Line B;Warping;2;105.3
+2026-11-26;Line A;Dent;15;31.08
+2026-11-26;Line B;Scratch;2;30.26
+2026-11-26;Line B;Crack;5;56.32
+2026-11-27;Line A;Discoloration;14;53.3
+2026-11-27;Line C;Scratch;1;49.2
+2026-11-27;Line A;Contamination;1;70.25
+2026-11-28;Line B;Scratch;13;60.62
+2026-11-28;Line C;Dent;5;61.73
+2026-11-28;Line B;Scratch;8;179.56
+2026-11-28;Line C;Crack;2;94.53
+2026-11-29;Line B;Dent;2;42.85
+2026-11-29;Line A;Scratch;18;22.8
+2026-11-29;Line B;Dent;7;79.51
+2026-11-29;Line B;Loose screw;8;98.5
+2026-11-29;Line B;Dent;15;153.83
+2026-11-29;Line C;Dent;1;48.28
+2026-11-29;Line A;Missing part;18;41.33
+2026-11-30;Line B;Misalignment;15;19.86
+2026-11-30;Line A;Loose screw;13;118.46
+2026-12-01;Line A;Dent;7;15.75
+2026-12-01;Line C;Contamination;11;65.98
+2026-12-02;Line B;Dent;17;127.45
+2026-12-02;Line A;Dent;4;35.19
+2026-12-02;Line B;Dent;8;42.09
+2026-12-02;Line A;Scratch;1;31.37
+2026-12-03;Line C;Discoloration;8;23.64
+2026-12-03;Line B;Scratch;14;22.19
+2026-12-03;Line C;Scratch;7;100.16
+2026-12-04;Line B;Discoloration;12;50.99
+2026-12-04;Line B;Scratch;9;27.73
+2026-12-04;Line B;Dent;9;60.15
+2026-12-04;Line B;Scratch;6;18.98
+2026-12-04;Line A;Scratch;5;36.1
+2026-12-05;Line A;Misalignment;10;31.49
+2026-12-05;Line C;Scratch;2;153.43
+2026-12-05;Line B;Dent;10;43.0
+2026-12-05;Line C;Dent;14;43.19
+2026-12-06;Line C;Scratch;15;52.84
+2026-12-06;Line B;Crack;7;64.6
+2026-12-07;Line B;Misalignment;13;82.35
+2026-12-07;Line B;Missing part;6;61.84
+2026-12-08;Line A;Dent;10;60.29
+2026-12-08;Line C;Crack;4;52.07
+2026-12-09;Line C;Scratch;12;23.72
+2026-12-09;Line B;Missing part;3;56.98
+2026-12-09;Line B;Misalignment;2;47.62
+2026-12-10;Line C;Missing part;15;150.68
+2026-12-10;Line B;Scratch;5;28.12
+2026-12-10;Line A;Loose screw;18;98.75
+2026-12-10;Line A;Misalignment;17;61.61
+2026-12-10;Line B;Scratch;2;45.83
+2026-12-11;Line A;Misalignment;7;29.1
+2026-12-12;Line A;Dent;1;89.85
+2026-12-12;Line A;Loose screw;1;50.45
+2026-12-13;Line B;Scratch;3;79.83
+2026-12-13;Line B;Crack;3;93.57
+2026-12-13;Line B;Scratch;5;107.53
+2026-12-13;Line A;Scratch;10;32.76
+2026-12-13;Line B;Dent;16;54.47
+2026-12-13;Line B;Scratch;12;63.98
+2026-12-14;Line A;Discoloration;19;105.82
+2026-12-14;Line A;Scratch;5;16.52
+2026-12-14;Line A;Dent;4;74.98
+2026-12-15;Line B;Missing part;10;56.21
+2026-12-15;Line A;Misalignment;7;13.77
+2026-12-15;Line C;Discoloration;19;75.34
+2026-12-15;Line B;Scratch;18;77.71
+2026-12-15;Line C;Dent;6;68.31
+2026-12-15;Line C;Dent;8;91.71
+2026-12-16;Line B;Scratch;14;8.87
+2026-12-16;Line B;Dent;15;37.59
+2026-12-16;Line A;Misalignment;16;75.6
+2026-12-17;Line B;Dent;19;104.47
+2026-12-19;Line A;Scratch;5;135.43
+2026-12-19;Line A;Scratch;2;48.27
+2026-12-20;Line B;Scratch;12;66.69
+2026-12-20;Line C;Scratch;7;101.02
+2026-12-21;Line C;Dent;10;46.68
+2026-12-21;Line C;Scratch;10;4.07
+2026-12-21;Line C;Scratch;2;146.19
+2026-12-21;Line C;Scratch;14;44.51
+2026-12-22;Line A;Crack;9;74.55
+2026-12-22;Line A;Dent;12;12.34
+2026-12-22;Line C;Scratch;7;146.05
+2026-12-22;Line A;Dent;19;18.9
+2026-12-22;Line A;Discoloration;3;54.75
+2026-12-23;Line C;Misalignment;7;20.77
+2026-12-23;Line A;Misalignment;13;21.69
+2026-12-23;Line C;Discoloration;5;34.47
+2026-12-24;Line B;Scratch;12;145.74
+2026-12-24;Line C;Crack;5;79.5
+2026-12-25;Line B;Dent;12;90.04
+2026-12-26;Line A;Crack;8;109.8
+2026-12-26;Line A;Scratch;12;44.51
+2026-12-26;Line B;Crack;14;67.15
+2026-12-26;Line B;Scratch;3;119.01
+2026-12-26;Line C;Dent;19;64.71
+2026-12-27;Line A;Dent;2;52.39
+2026-12-27;Line C;Scratch;10;241.48
+2026-12-27;Line A;Discoloration;4;159.82
+2026-12-27;Line A;Missing part;6;40.67
+2026-12-28;Line B;Scratch;3;28.27
+2026-12-28;Line A;Dent;7;110.59
+2026-12-28;Line B;Missing part;16;53.61
+2026-12-29;Line A;Dent;10;35.67
+2026-12-29;Line B;Dent;14;27.71
+2026-12-29;Line C;Missing part;4;198.81
+2026-12-29;Line A;Misalignment;8;57.54
