@@ -16,7 +16,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/ holds the app's source code, so it must NOT be ignored
 lib64/
 parts/
 sdist/

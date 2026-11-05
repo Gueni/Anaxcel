@@ -1,66 +1,71 @@
-
 # Anaxcel
 
-A Python-based, open source, desktop application to import, read and analyse excel files in order to create and display multiple charts.
+A Python desktop app for combining Excel/CSV files and analysing them with Pareto and donut charts.
 
-Anaxcel is Free Software under a GPLv2 license.
+Anaxcel is free software under the GPLv2 license.
 
-## Getting Started
+![Data view](assets/screenshots/data.png)
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Features
 
-### Prerequisites
+- Load several `.xls`, `.xlsx`, `.xlsm` and `.csv` files at once. Add them with the button or by drag and drop, and they are combined into one table.
+- A fast table view that handles hundreds of thousands of rows. Click a column header to sort it, and use the search box to filter rows.
+- A **Pareto chart** that highlights the "vital few" categories making up 80 % of the total. Hover a bar to see its values.
+- A **donut chart** that shows each category's share of the total.
+- Export the visible rows to `.xlsx` or `.csv`.
+- Light and dark themes. The window scales with any screen size and DPI, and the sidebar shrinks to icons when the window is narrow.
 
+## Getting started
 
-To be able to run this Program make sure you have the necessary packages installed on your machine:
-
-####PyQt5:
-
-Mainly use the following command under the cmd
-```
-pip install PyQt5
-```
-If that did not work, you might try this link from SourceForge [PyQt5 .exe installers for Windows](https://sourceforge.net/projects/pyqt/files/PyQt5/).
-
-install OpenPYXL in Python:
+Requires Python 3.9 or newer.
 
 ```
-pip install openpyxl
-```
-If you need to include images into an openpyxl file, you will also need the “pillow” library that can be installed with:
-
-```
-pip install pillow
+py -m pip install -r requirements.txt
+py main.py
 ```
 
-## Running 
+On macOS or Linux, use `python3` instead of `py`. You can also pass files when starting the app: `py main.py data1.xlsx data2.csv`.
 
-Simply run the main script <anaxcel.py>.
+## Usage
+
+1. **Files**: add spreadsheets, then click **Load**. Only the selected files are loaded, or all of them if none are selected. Clear *First row contains column names* if your files have no header row.
+2. **Data**: check the combined table. Pick a **Category** column (what to group by) and a **Value** column (what to add up), then click **Analyse**.
+3. **Pareto / Donut**: explore the charts. Use the chart toolbar to zoom, pan or save as an image.
+
+| Pareto | Donut |
+|---|---|
+| ![Pareto](assets/screenshots/pareto.png) | ![Donut](assets/screenshots/donut.png) |
+
+Light theme in a small window:
+
+![Light, compact](assets/screenshots/light-compact.png)
+
+### Keyboard shortcuts
+
+| Action | Shortcut |
+|---|---|
+| Add files | Ctrl+O |
+| Load files | Ctrl+L |
+| Analyse | Ctrl+R |
+| Export data | Ctrl+E |
+| Switch page | Ctrl+1 … Ctrl+4 |
+| Toggle theme | Ctrl+T |
+| Remove selected files | Del (in the file list) |
+| About | F1 |
+
+## Project layout
 
 ```
-python anaxcel.py
+main.py            entry point
+lib/anaxcel.py     main window: behaviour and wiring
+lib/anaxcelgui.py  main window: layout and widgets
+lib/charts.py      Pareto (matplotlib) and donut (Qt Charts) widgets
+lib/core.py        file loading, Pareto maths, table model (no widgets)
+lib/theme.py       light/dark colour tokens and stylesheet
+lib/dialogs.py     About and License dialogs
+assets/            icons and screenshots
 ```
-
-First start by loading a couple of excel files to the application. You can choose to load a display a single file or select multiple files. 
-
-
-The process will combine the selected files and load them for you .
-
-![Screenshot](s3.png)
-
-Select what columns you wish to be the axis of the chart then hit analyse.The program will set focus on the newly generated Pareto Chart.
-
-![Screenshot](s1.png)
-
-As a bonus we wanted to include multiple charts such the Donut chart. Unfortunatly , this is still a work in progress.
-
-![Screenshot](s6.png) 
-
 
 ## License
 
-This document and the attached source code are released under GNU General Public License Version 2. See the accompanying file LICENSE for a copy.
-
-
-
-
+Released under the GNU General Public License, version 2.
