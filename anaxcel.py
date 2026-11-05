@@ -21,9 +21,6 @@ import anaxcelgui
 import aboutmain
 
 
-
-
-
 class anaxcelhandler(QtWidgets.QMainWindow, anaxcelgui.Ui_MainWindow):
 
     def __init__(self, parent=None):
