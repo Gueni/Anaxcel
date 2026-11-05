@@ -1,1 +1,20 @@
-"""Anaxcel application package."""
+#!/usr/bin/env python
+# coding=utf-8
+#? -------------------------------------------------------------------------------
+#?
+#?              ___ __
+#?             / (_) /_
+#?            / / / __ \
+#?           / / / /_/ /
+#?          /_/_/_.___/
+#?
+#?
+#? Name:        __init__.py
+#? Purpose:     Anaxcel application package.
+#?
+#? Author:      Mohamed Gueni ( mohamedgueni@outlook.com)
+#?
+#? Created:     11/11/2025
+#? Licence:     Refer to the LICENSE file
+#? -------------------------------------------------------------------------------
+#? -------------------------------------------------------------------------------

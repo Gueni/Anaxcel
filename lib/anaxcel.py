@@ -1,39 +1,55 @@
-"""Anaxcel main window — combine Excel/CSV files and analyse them with Pareto and donut charts.
+#!/usr/bin/env python
+# coding=utf-8
+#? -------------------------------------------------------------------------------
+#?
+#?                                              __
+#?            ____ _____  ____ __  __________  / /
+#?           / __ `/ __ \/ __ `/ |/_/ ___/ _ \/ /
+#?          / /_/ / / / / /_/ />  </ /__/  __/ /
+#?          \__,_/_/ /_/\__,_/_/|_|\___/\___/_/
+#?
+#?
+#? Name:        anaxcel.py
+#? Purpose:     Anaxcel main window: combine Excel/CSV files and analyse them with Pareto and donut charts.
+#?              App: application setup (high DPI, theme, splash screen). Start it with `py main.py`.
+#?
+#? Author:      Mohamed Gueni ( mohamedgueni@outlook.com)
+#?
+#? Created:     11/11/2025
+#? Licence:     Refer to the LICENSE file
+#? -------------------------------------------------------------------------------
+#? -------------------------------------------------------------------------------
+import  os
+import  sys
 
-Start the app with `py main.py` from the project root.
-"""
-import os
-import sys
+from    PyQt5.QtCore                import  QSettings, Qt, QTimer
+from    PyQt5.QtGui                 import  QFont, QGuiApplication, QIcon, QPixmap
+from    PyQt5.QtWidgets             import  QApplication, QFileDialog, QListWidgetItem, QMainWindow, QMessageBox, QSplashScreen
 
-from PyQt5.QtCore import QSettings, Qt, QTimer
-from PyQt5.QtGui import QFont, QGuiApplication, QIcon, QPixmap
-from PyQt5.QtWidgets import (QApplication, QFileDialog, QListWidgetItem, QMainWindow, QMessageBox,
-                             QSplashScreen)
-
-from lib.anaxcelgui import Ui_MainWindow
-from lib.core import (FILE_FILTER, DataFrameModel, LoadWorker, __version__, compute_pareto, guess_columns,
-                  is_supported, resource_path)
-from lib.dialogs import AboutDialog
-from lib.theme import apply_theme
-
-COMPACT_SIDEBAR_BELOW = 900   # window width (logical px) under which the sidebar shows icons only
-
-
+from    lib.anaxcelgui              import  Ui_MainWindow
+from    lib.core                    import  FILE_FILTER, __version__, DataFrameModel, Loader, LoadWorker, Pareto, Utils
+from    lib.dialogs                 import  AboutDialog
+from    lib.theme                   import  Theme
+#?----------------------------------------------------------------------------------------------------------------------------------------
+COMPACT_SIDEBAR_BELOW       = 900                                                      # window width (logical px) under which the sidebar shows icons only
+#?----------------------------------------------------------------------------------------------------------------------------------------
 class MainWindow(QMainWindow):
+    """The application window: wires the UI built by Ui_MainWindow to loading, analysis and export."""
+
     def __init__(self):
         super().__init__()
-        self.settings = QSettings("Gueni", "Anaxcel")
-        self.ui = Ui_MainWindow()
+        self.settings       = QSettings("Gueni", "Anaxcel")
+        self.ui             = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.model = DataFrameModel(self)
+        self.model          = DataFrameModel(self)
         self.ui.tableView.setModel(self.model)
         self.ui.tableView.horizontalHeader().setSortIndicator(-1, Qt.AscendingOrder)
         self.ui.tableView.setSortingEnabled(True)
 
-        self._worker = None
-        self._loaded_files = 0
-        self._search_timer = QTimer(self, singleShot=True, interval=200)
+        self._worker        = None
+        self._loaded_files  = 0
+        self._search_timer  = QTimer(self, singleShot=True, interval=200)
         self._search_timer.timeout.connect(self._apply_search)
 
         self._connect()
@@ -42,9 +58,11 @@ class MainWindow(QMainWindow):
         self.go_to(0)
         self._update_state()
 
-    # ------------------------------------------------------------------ wiring
+    #?------------------------------------------------------------------------------------------------------------------------------------
+    #? Wiring
+    #?------------------------------------------------------------------------------------------------------------------------------------
     def _connect(self):
-        ui = self.ui
+        ui                  = self.ui
         ui.navGroup.idClicked.connect(self.go_to)
         for i, action in enumerate(ui.pageActions):
             action.triggered.connect(lambda _=False, i=i: self.go_to(i))
@@ -79,38 +97,40 @@ class MainWindow(QMainWindow):
         self.ui.stack.setCurrentIndex(index)
         self.ui.navButtons[index].setChecked(True)
 
-    # ------------------------------------------------------------------ files
+    #?------------------------------------------------------------------------------------------------------------------------------------
+    #? Files
+    #?------------------------------------------------------------------------------------------------------------------------------------
     def add_files_dialog(self):
-        start = self.settings.value("lastDir", os.path.expanduser("~"))
-        paths, _ = QFileDialog.getOpenFileNames(self, "Add spreadsheets", start, FILE_FILTER)
+        start               = self.settings.value("lastDir", os.path.expanduser("~"))
+        paths, _            = QFileDialog.getOpenFileNames(self, "Add spreadsheets", start, FILE_FILTER)
         if paths:
             self.settings.setValue("lastDir", os.path.dirname(paths[0]))
             self.add_files(paths)
 
     def add_files(self, paths):
-        file_list = self.ui.fileList
-        existing = {file_list.item(i).data(Qt.UserRole) for i in range(file_list.count())}
-        added = skipped = 0
+        file_list           = self.ui.fileList
+        existing            = {file_list.item(i).data(Qt.UserRole) for i in range(file_list.count())}
+        added = skipped     = 0
         for path in paths:
-            path = os.path.normpath(path)
-            if not os.path.isfile(path) or not is_supported(path) or path in existing:
-                skipped += 1
+            path            = os.path.normpath(path)
+            if not os.path.isfile(path) or not Utils.is_supported(path) or path in existing:
+                skipped    += 1
                 continue
-            item = QListWidgetItem(os.path.basename(path))
+            item            = QListWidgetItem(os.path.basename(path))
             item.setData(Qt.UserRole, path)
             item.setToolTip(path)
             file_list.addItem(item)
             existing.add(path)
-            added += 1
-        message = f"Added {added} file{'s' * (added != 1)}"
+            added          += 1
+        message             = f"Added {added} file{'s' * (added != 1)}"
         if skipped:
-            message += f" · skipped {skipped} (duplicate or unsupported)"
+            message        += f" · skipped {skipped} (duplicate or unsupported)"
         self.statusBar().showMessage(message, 5000)
         self.go_to(0)
         self._update_state()
 
     def remove_selected(self):
-        file_list = self.ui.fileList
+        file_list           = self.ui.fileList
         for item in file_list.selectedItems():
             file_list.takeItem(file_list.row(item))
         self._update_state()
@@ -118,7 +138,7 @@ class MainWindow(QMainWindow):
     def clear_all(self):
         self.ui.fileList.clear()
         self.model.set_frame(self.model.frame.iloc[0:0, 0:0])
-        self._loaded_files = 0
+        self._loaded_files  = 0
         for combo in (self.ui.categoryCombo, self.ui.valueCombo):
             combo.clear()
         self.ui.searchEdit.clear()
@@ -126,19 +146,21 @@ class MainWindow(QMainWindow):
         self._show_result(None)
         self._update_state()
 
-    # ------------------------------------------------------------------ loading
+    #?------------------------------------------------------------------------------------------------------------------------------------
+    #? Loading
+    #?------------------------------------------------------------------------------------------------------------------------------------
     def load_files(self, items=None):
         if self._worker is not None:
             return
-        file_list = self.ui.fileList
+        file_list           = self.ui.fileList
         if not items:
-            items = file_list.selectedItems() or [file_list.item(i) for i in range(file_list.count())]
-        paths = [item.data(Qt.UserRole) for item in items]
+            items           = file_list.selectedItems() or [file_list.item(i) for i in range(file_list.count())]
+        paths               = [item.data(Qt.UserRole) for item in items]
         if not paths:
             self.statusBar().showMessage("Add some files first.", 4000)
             return
 
-        self._worker = LoadWorker(paths, self.ui.headerCheck.isChecked(), self)
+        self._worker        = LoadWorker(paths, self.ui.headerCheck.isChecked(), self)
         self._worker.progress.connect(self.ui.progress.setValue)
         self._worker.loaded.connect(self._on_loaded)
         self._worker.finished.connect(self._worker.deleteLater)
@@ -154,7 +176,7 @@ class MainWindow(QMainWindow):
     def _on_loaded(self, df, errors):
         QApplication.restoreOverrideCursor()
         self.ui.progress.hide()
-        self._worker = None
+        self._worker        = None
         self.statusBar().clearMessage()
         if errors:
             QMessageBox.warning(self, "Some files could not be read",
@@ -172,8 +194,8 @@ class MainWindow(QMainWindow):
         self.ui.tableView.resizeColumnsToContents()
         self._cap_column_widths()
 
-        columns = [str(c) for c in df.columns]
-        category, value = guess_columns(df)
+        columns             = [str(c) for c in df.columns]
+        category, value     = Loader.guess_columns(df)
         for combo, current in ((self.ui.categoryCombo, category), (self.ui.valueCombo, value)):
             combo.blockSignals(True)
             combo.clear()
@@ -181,15 +203,15 @@ class MainWindow(QMainWindow):
             combo.setCurrentText(str(current))
             combo.blockSignals(False)
 
-        self._loaded_files = self._loading_count - len(errors)
+        self._loaded_files  = self._loading_count - len(errors)
         self._show_result(None)
         self._update_data_subtitle()
         self.go_to(1)
         self._update_state()
 
     def _cap_column_widths(self):
-        table = self.ui.tableView
-        cap = max(160, table.viewport().width() // 3)
+        table               = self.ui.tableView
+        cap                 = max(160, table.viewport().width() // 3)
         for col in range(self.model.columnCount()):
             if table.columnWidth(col) > cap:
                 table.setColumnWidth(col, cap)
@@ -199,18 +221,19 @@ class MainWindow(QMainWindow):
         self._update_data_subtitle()
 
     def _update_data_subtitle(self):
-        total, shown, cols = len(self.model.frame), self.model.rowCount(), self.model.columnCount()
-        rows = f"{total:,} rows" if shown == total else f"{shown:,} of {total:,} rows"
-        files = self._loaded_files
+        total, shown, cols  = len(self.model.frame), self.model.rowCount(), self.model.columnCount()
+        rows                = f"{total:,} rows" if shown == total else f"{shown:,} of {total:,} rows"
+        files               = self._loaded_files
         self.ui.dataSubtitle.setText(f"{rows} × {cols} columns from {files} file{'s' * (files != 1)}.")
 
-    # ------------------------------------------------------------------ analysis
+    #?------------------------------------------------------------------------------------------------------------------------------------
+    #? Analysis
+    #?------------------------------------------------------------------------------------------------------------------------------------
     def analyse(self):
         if self.model.frame.empty:
             return
         try:
-            result = compute_pareto(self.model.frame, self.ui.categoryCombo.currentText(),
-                                    self.ui.valueCombo.currentText())
+            result          = Pareto.compute(self.model.frame, self.ui.categoryCombo.currentText(), self.ui.valueCombo.currentText())
         except (KeyError, ValueError) as exc:
             QMessageBox.warning(self, "Cannot analyse", str(exc).strip("'\""))
             return
@@ -218,7 +241,7 @@ class MainWindow(QMainWindow):
         self.go_to(2)
 
     def _show_result(self, result):
-        ui = self.ui
+        ui                  = self.ui
         ui.paretoChart.plot(result)
         ui.donutChart.plot(result)
         ui.paretoStack.setCurrentIndex(1 if result else 0)
@@ -227,48 +250,50 @@ class MainWindow(QMainWindow):
             ui.paretoSubtitle.setText(ui.PARETO_SUBTITLE)
             ui.donutSubtitle.setText(ui.DONUT_SUBTITLE)
             return
-        n = len(result.labels)
-        summary = (f"{result.vital_few} of {n} categor{'ies' if n != 1 else 'y'} make up 80 % "
-                   f"of the total {result.value} ({result.total:,.6g}).")
-        notes = []
+        n                   = len(result.labels)
+        summary             = (f"{result.vital_few} of {n} categor{'ies' if n != 1 else 'y'} make up 80 % "
+                               f"of the total {result.value} ({result.total:,.6g}).")
+        notes               = []
         if result.skipped_rows:
             notes.append(f"{result.skipped_rows:,} rows skipped (empty or non-numeric)")
         if result.dropped_categories:
             notes.append(f"{result.dropped_categories} categories ≤ 0 left out")
         ui.paretoSubtitle.setText(summary + ("  ·  " + "; ".join(notes) if notes else ""))
-        ui.donutSubtitle.setText(f"Share of the total {result.value} per {result.category}. "
-                                 f"Hover a slice for details.")
+        ui.donutSubtitle.setText(f"Share of the total {result.value} per {result.category}. Hover a slice for details.")
 
-    # ------------------------------------------------------------------ export
+    #?------------------------------------------------------------------------------------------------------------------------------------
+    #? Export
+    #?------------------------------------------------------------------------------------------------------------------------------------
     def export_data(self):
         if self.model.frame.empty:
             return
-        start = os.path.join(self.settings.value("lastDir", os.path.expanduser("~")), "combined.xlsx")
-        path, chosen = QFileDialog.getSaveFileName(self, "Export data", start,
-                                                   "Excel workbook (*.xlsx);;CSV file (*.csv)")
+        start               = os.path.join(self.settings.value("lastDir", os.path.expanduser("~")), "combined.xlsx")
+        path, chosen        = QFileDialog.getSaveFileName(self, "Export data", start, "Excel workbook (*.xlsx);;CSV file (*.csv)")
         if not path:
             return
-        frame = self.model.visible_frame()
+        frame               = self.model.visible_frame()
         try:
             if path.lower().endswith(".csv") or (chosen.startswith("CSV") and not path.lower().endswith(".xlsx")):
-                path = path if path.lower().endswith(".csv") else path + ".csv"
+                path        = path if path.lower().endswith(".csv") else path + ".csv"
                 frame.to_csv(path, index=False)
             else:
-                path = path if path.lower().endswith(".xlsx") else path + ".xlsx"
+                path        = path if path.lower().endswith(".xlsx") else path + ".xlsx"
                 frame.to_excel(path, index=False)
         except Exception as exc:
             QMessageBox.warning(self, "Export failed", str(exc))
             return
         self.statusBar().showMessage(f"Exported {len(frame):,} rows to {path}", 6000)
 
-    # ------------------------------------------------------------------ state & theme
+    #?------------------------------------------------------------------------------------------------------------------------------------
+    #? State and theme
+    #?------------------------------------------------------------------------------------------------------------------------------------
     def _update_state(self):
-        ui = self.ui
-        count = ui.fileList.count()
-        selected = len(ui.fileList.selectedItems())
-        loading = self._worker is not None
-        has_data = not self.model.frame.empty
-        can_analyse = has_data and ui.categoryCombo.count() > 0 and not loading
+        ui                  = self.ui
+        count               = ui.fileList.count()
+        selected            = len(ui.fileList.selectedItems())
+        loading             = self._worker is not None
+        has_data            = not self.model.frame.empty
+        can_analyse         = has_data and ui.categoryCombo.count() > 0 and not loading
 
         for widget in (ui.btnRemove, ui.actionRemove):
             widget.setEnabled(selected > 0 and not loading)
@@ -286,8 +311,8 @@ class MainWindow(QMainWindow):
         ui.statusInfo.setText(f"{len(self.model.frame):,} rows loaded" if has_data else "")
 
     def set_theme(self, name: str):
-        palette = apply_theme(QApplication.instance(), name)
-        self._theme = palette["name"]
+        palette             = Theme.apply(QApplication.instance(), name)
+        self._theme         = palette["name"]
         self.ui.set_theme_label(self._theme == "dark")
         self.ui.paretoChart.set_palette(palette)
         self.ui.donutChart.set_palette(palette)
@@ -295,12 +320,14 @@ class MainWindow(QMainWindow):
     def toggle_theme(self):
         self.set_theme("light" if self._theme == "dark" else "dark")
 
-    # ------------------------------------------------------------------ window
+    #?------------------------------------------------------------------------------------------------------------------------------------
+    #? Window
+    #?------------------------------------------------------------------------------------------------------------------------------------
     def _restore_geometry(self):
-        screen = (self.screen() if hasattr(self, "screen") else QGuiApplication.primaryScreen()).availableGeometry()
-        min_w, min_h = min(680, screen.width()), min(460, screen.height())
+        screen              = (self.screen() if hasattr(self, "screen") else QGuiApplication.primaryScreen()).availableGeometry()
+        min_w, min_h        = min(680, screen.width()), min(460, screen.height())
         self.setMinimumSize(min_w, min_h)
-        geometry = self.settings.value("geometry")
+        geometry            = self.settings.value("geometry")
         if geometry is not None and self.restoreGeometry(geometry):
             return
         self.resize(max(min_w, int(screen.width() * 0.8)), max(min_h, int(screen.height() * 0.82)))
@@ -312,8 +339,8 @@ class MainWindow(QMainWindow):
 
     def closeEvent(self, event):
         if not self.model.frame.empty:
-            answer = QMessageBox.question(self, "Quit Anaxcel", "Close Anaxcel? Loaded data will be discarded.",
-                                          QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+            answer          = QMessageBox.question(self, "Quit Anaxcel", "Close Anaxcel? Loaded data will be discarded.",
+                                                   QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
             if answer != QMessageBox.Yes:
                 event.ignore()
                 return
@@ -322,47 +349,52 @@ class MainWindow(QMainWindow):
         self.settings.setValue("geometry", self.saveGeometry())
         self.settings.setValue("theme", self._theme)
         event.accept()
+#?----------------------------------------------------------------------------------------------------------------------------------------
+class App:
+    """Application setup and start-up."""
 
+    @staticmethod
+    def _enable_high_dpi():
+        QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
+        QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
+        if hasattr(QGuiApplication, "setHighDpiScaleFactorRoundingPolicy"):
+            QGuiApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
+        if sys.platform == "win32":                                                    # own taskbar icon instead of python.exe's
+            try:
+                import ctypes
+                ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("Gueni.Anaxcel")
+            except Exception:
+                pass
 
-def _enable_high_dpi():
-    QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
-    QApplication.setAttribute(Qt.AA_UseHighDpiPixmaps, True)
-    if hasattr(QGuiApplication, "setHighDpiScaleFactorRoundingPolicy"):
-        QGuiApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
-    if sys.platform == "win32":  # own taskbar icon instead of python.exe's
-        try:
-            import ctypes
-            ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("Gueni.Anaxcel")
-        except Exception:
-            pass
+    @staticmethod
+    def run():
+        """Create the application, show the splash screen, then the main window (files given on the command line are added)."""
+        App._enable_high_dpi()
+        app                 = QApplication(sys.argv)
+        app.setApplicationName("Anaxcel")
+        app.setOrganizationName("Gueni")
+        app.setApplicationVersion(__version__)
+        app.setStyle("Fusion")
+        app.setWindowIcon(QIcon(Utils.resource_path("icons", "icon.png")))
+        if sys.platform == "win32":
+            app.setFont(QFont("Segoe UI", 10))
 
+        splash_pix          = QPixmap(Utils.resource_path("icons", "splash.png"))
+        splash              = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
+        if splash_pix.hasAlphaChannel():
+            splash.setMask(splash_pix.mask())
+        splash.show()
+        app.processEvents()
 
-def main():
-    _enable_high_dpi()
-    app = QApplication(sys.argv)
-    app.setApplicationName("Anaxcel")
-    app.setOrganizationName("Gueni")
-    app.setApplicationVersion(__version__)
-    app.setStyle("Fusion")
-    app.setWindowIcon(QIcon(resource_path("icons", "icon.png")))
-    if sys.platform == "win32":
-        app.setFont(QFont("Segoe UI", 10))
+        window              = MainWindow()
+        files               = [arg for arg in sys.argv[1:] if os.path.isfile(arg)]
+        if files:
+            window.add_files(files)
 
-    splash_pix = QPixmap(resource_path("icons", "splash.png"))
-    splash = QSplashScreen(splash_pix, Qt.WindowStaysOnTopHint)
-    if splash_pix.hasAlphaChannel():
-        splash.setMask(splash_pix.mask())
-    splash.show()
-    app.processEvents()
+        def reveal():
+            window.show()
+            splash.finish(window)
 
-    window = MainWindow()
-    files = [arg for arg in sys.argv[1:] if os.path.isfile(arg)]
-    if files:
-        window.add_files(files)
-
-    def reveal():
-        window.show()
-        splash.finish(window)
-
-    QTimer.singleShot(700, reveal)
-    sys.exit(app.exec_())
+        QTimer.singleShot(700, reveal)
+        sys.exit(app.exec_())
+#?----------------------------------------------------------------------------------------------------------------------------------------

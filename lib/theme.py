@@ -1,40 +1,50 @@
-"""Light and dark themes: colour tokens, the Qt palette and the application stylesheet."""
-from string import Template
+#!/usr/bin/env python
+# coding=utf-8
+#? -------------------------------------------------------------------------------
+#?
+#?             __  __
+#?            / /_/ /_  ___  ____ ___  ___
+#?           / __/ __ \/ _ \/ __ `__ \/ _ \
+#?          / /_/ / / /  __/ / / / / /  __/
+#?          \__/_/ /_/\___/_/ /_/ /_/\___/
+#?
+#?
+#? Name:        theme.py
+#? Purpose:     light and dark themes: colour tokens, the Qt palette and the application stylesheet.
+#?
+#? Author:      Mohamed Gueni ( mohamedgueni@outlook.com)
+#?
+#? Created:     11/11/2025
+#? Licence:     Refer to the LICENSE file
+#? -------------------------------------------------------------------------------
+#? -------------------------------------------------------------------------------
+from    string                      import  Template
+from    PyQt5.QtGui                 import  QColor, QPalette
 
-from PyQt5.QtGui import QColor, QPalette
-
-from lib.core import resource_path
-
-PALETTES = {
-    "dark": {
-        "bg": "#0f1115", "surface": "#171a21", "surface_alt": "#1f232c", "border": "#2a2f3a",
-        "scroll": "#3a4150", "text": "#e6e8ee", "text_muted": "#8b93a7",
-        "accent": "#4f8cff", "accent_hover": "#6b9fff", "accent_soft": "#1c2a45", "accent_text": "#ffffff",
-        "selection": "#24406e", "chart_secondary": "#ffb547", "chart_muted": "#3a4256",
-    },
-    "light": {
-        "bg": "#f4f6fa", "surface": "#ffffff", "surface_alt": "#eef1f6", "border": "#dde2ea",
-        "scroll": "#c3cad6", "text": "#1b1f29", "text_muted": "#6b7385",
-        "accent": "#2f6fed", "accent_hover": "#4a82f0", "accent_soft": "#e3ecfd", "accent_text": "#ffffff",
-        "selection": "#cfe0ff", "chart_secondary": "#e8890c", "chart_muted": "#c5cddb",
-    },
-}
-
-SERIES_COLORS = ["#4f8cff", "#ffb547", "#3ccf91", "#ef5b8a", "#9b7bff",
-                 "#2ec5d3", "#ff8a4c", "#a3b1c9", "#d4c34a", "#6fcf5b"]
-
-
-def get_palette(name: str) -> dict:
-    p = dict(PALETTES.get(name, PALETTES["dark"]))
-    p["name"] = name if name in PALETTES else "dark"
-    return p
-
-
-def _icon(name: str) -> str:
-    return resource_path("icons", name).replace("\\", "/")
-
-
-_QSS = Template(r"""
+from    lib.core                    import  Utils
+#?----------------------------------------------------------------------------------------------------------------------------------------
+#? Colour tokens per theme, and the categorical colours of chart series
+PALETTES                    = {
+                                "dark"  : {
+                                    "bg"             : "#0f1115", "surface"        : "#171a21", "surface_alt"    : "#1f232c",
+                                    "border"         : "#2a2f3a", "scroll"         : "#3a4150", "text"           : "#e6e8ee",
+                                    "text_muted"     : "#8b93a7", "accent"         : "#4f8cff", "accent_hover"   : "#6b9fff",
+                                    "accent_soft"    : "#1c2a45", "accent_text"    : "#ffffff", "selection"      : "#24406e",
+                                    "chart_secondary": "#ffb547", "chart_muted"    : "#3a4256",
+                                },
+                                "light" : {
+                                    "bg"             : "#f4f6fa", "surface"        : "#ffffff", "surface_alt"    : "#eef1f6",
+                                    "border"         : "#dde2ea", "scroll"         : "#c3cad6", "text"           : "#1b1f29",
+                                    "text_muted"     : "#6b7385", "accent"         : "#2f6fed", "accent_hover"   : "#4a82f0",
+                                    "accent_soft"    : "#e3ecfd", "accent_text"    : "#ffffff", "selection"      : "#cfe0ff",
+                                    "chart_secondary": "#e8890c", "chart_muted"    : "#c5cddb",
+                                },
+                              }
+SERIES_COLORS               = ["#4f8cff", "#ffb547", "#3ccf91", "#ef5b8a", "#9b7bff",
+                               "#2ec5d3", "#ff8a4c", "#a3b1c9", "#d4c34a", "#6fcf5b"]
+#?----------------------------------------------------------------------------------------------------------------------------------------
+#? Application stylesheet; $tokens are filled from the palette by Theme.apply()
+_QSS                        = Template(r"""
 * { outline: 0; }
 QWidget { color: $text; }
 QMainWindow, QDialog, QStackedWidget, QWidget#page { background: $bg; }
@@ -142,30 +152,45 @@ QToolButton:hover { background: $surface_alt; }
 QToolButton:checked { background: $accent_soft; }
 QDialogButtonBox QPushButton { min-width: 80px; }
 """)
+#?----------------------------------------------------------------------------------------------------------------------------------------
+class Theme:
+    """Palette lookup and application-wide theming."""
 
+    @staticmethod
+    def get_palette(name: str) -> dict:
+        """Colour tokens of the named theme (unknown names fall back to dark), plus its resolved 'name'."""
+        p                   = dict(PALETTES.get(name, PALETTES["dark"]))
+        p["name"]           = name if name in PALETTES else "dark"
+        return p
 
-def apply_theme(app, name: str) -> dict:
-    """Apply the named theme to the whole application and return its colour tokens."""
-    p = get_palette(name)
-    c = {k: QColor(v) for k, v in p.items() if isinstance(v, str) and v.startswith("#")}
+    @staticmethod
+    def _icon(name: str) -> str:
+        return Utils.resource_path("icons", name).replace("\\", "/")
 
-    pal = QPalette()
-    pal.setColor(QPalette.Window, c["bg"])
-    pal.setColor(QPalette.WindowText, c["text"])
-    pal.setColor(QPalette.Base, c["surface"])
-    pal.setColor(QPalette.AlternateBase, c["surface_alt"])
-    pal.setColor(QPalette.Text, c["text"])
-    pal.setColor(QPalette.Button, c["surface_alt"])
-    pal.setColor(QPalette.ButtonText, c["text"])
-    pal.setColor(QPalette.Highlight, c["selection"])
-    pal.setColor(QPalette.HighlightedText, c["text"])
-    pal.setColor(QPalette.ToolTipBase, c["surface_alt"])
-    pal.setColor(QPalette.ToolTipText, c["text"])
-    pal.setColor(QPalette.PlaceholderText, c["text_muted"])
-    pal.setColor(QPalette.Link, c["accent"])
-    pal.setColor(QPalette.LinkVisited, c["accent"])
-    for role in (QPalette.Text, QPalette.ButtonText, QPalette.WindowText):
-        pal.setColor(QPalette.Disabled, role, c["text_muted"])
-    app.setPalette(pal)
-    app.setStyleSheet(_QSS.substitute(p, chevron=_icon("chevron-down.svg"), check=_icon("check.svg")))
-    return p
+    @staticmethod
+    def apply(app, name: str) -> dict:
+        """Apply the named theme to the whole application and return its colour tokens."""
+        p                   = Theme.get_palette(name)
+        c                   = {k: QColor(v) for k, v in p.items() if isinstance(v, str) and v.startswith("#")}
+
+        pal                 = QPalette()
+        pal.setColor(QPalette.Window,          c["bg"])
+        pal.setColor(QPalette.WindowText,      c["text"])
+        pal.setColor(QPalette.Base,            c["surface"])
+        pal.setColor(QPalette.AlternateBase,   c["surface_alt"])
+        pal.setColor(QPalette.Text,            c["text"])
+        pal.setColor(QPalette.Button,          c["surface_alt"])
+        pal.setColor(QPalette.ButtonText,      c["text"])
+        pal.setColor(QPalette.Highlight,       c["selection"])
+        pal.setColor(QPalette.HighlightedText, c["text"])
+        pal.setColor(QPalette.ToolTipBase,     c["surface_alt"])
+        pal.setColor(QPalette.ToolTipText,     c["text"])
+        pal.setColor(QPalette.PlaceholderText, c["text_muted"])
+        pal.setColor(QPalette.Link,            c["accent"])
+        pal.setColor(QPalette.LinkVisited,     c["accent"])
+        for role in (QPalette.Text, QPalette.ButtonText, QPalette.WindowText):
+            pal.setColor(QPalette.Disabled, role, c["text_muted"])
+        app.setPalette(pal)
+        app.setStyleSheet(_QSS.substitute(p, chevron=Theme._icon("chevron-down.svg"), check=Theme._icon("check.svg")))
+        return p
+#?----------------------------------------------------------------------------------------------------------------------------------------
